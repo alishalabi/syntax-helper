@@ -27,10 +27,16 @@ Please make sure to update tests as appropriate.
 
 ## Milestones
 - [x] Generate skeleton structure
-- []
-
-
-
+- [x] Implement `Golang` command
+- [] Implement `Golang package` parameter
+- [] Implement `Golang function` parameter
+- [] Implement Go-Colly to populate messages
+- [] Implement `Python` command
+- [] Implement `Python package` parameter
+- [] Implement `Python function` parameter
+- [] Finalize ReadMe.md
+- [] Implement badges
+- [] Deploy as Homebrew package
 
 
 ## License
