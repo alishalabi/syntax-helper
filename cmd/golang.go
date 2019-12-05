@@ -1,5 +1,5 @@
 /*
-Copyright © 2019 NAME HERE <EMAIL ADDRESS>
+Copyright © 2019 Ali Shalabi <ashalabi13@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,18 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// CMD is a package that provides CLI utility
+// Package CMD provides CLI utility
 package cmd
 
 import (
-	// Fmt is a package that allows formating options
+	// Package fmt allows formating options (ex: print line)
 	"fmt"
-	// Strings is a package that allows string manipulation
+	// Package strings allows string manipulation (ex: join)
 	"strings"
 
-	// Cobra is a package that facilitates CLI projects
+	// Package cobra facilitates CLI projects
 	"github.com/spf13/cobra"
-	// Colly is a web scrapper
+	// Package colly permits web scrapping
 	"github.com/gocolly/colly"
 )
 
@@ -42,64 +42,35 @@ to quickly create a Cobra application.`,
 	// All CLI functionality is nested under the RUN section
 	// All submitted arguments can be found in args slice
 	Run: func(cmd *cobra.Command, args []string) {
-		// Content is the scrapped data we will be printing the command line 
+		// Content is the scrapped data we will be printing the command line
 		content := []string{}
 		c := colly.NewCollector(
 			// Put allowed domain parameters here
 		)
+		// Case - Single Argument: Print Index Of All Package Methods
 		if len(args) == 1 {
 			// Link is the website we will be scrapping
 			link := fmt.Sprintf("https://golang.org/pkg/%s/", args[0])
-			Selector is the
+			// Selector is the type of html we want to scrape
 			selector := "#manual-nav > dl > dd > a"
-			fmt.Println(selector)
+
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
 				formatedText := fmt.Sprintf("%s", e.Text)
 				content = append(content, formatedText)
 				// fmt.Println("Got content")
 				// fmt.Println(content)
-				message := strings.Join(content, "")
-				fmt.Println(message)
+
 				// content += formatedText
 
 			})
-
-			// c.OnRequest(func(r *colly.Request) {
-			// 	fmt.Printf("Visiting package: \"%s\"", args[0])
-			// })
-
+			message := strings.Join(content, "\n")
+			fmt.Println(message)
 			c.Visit(link)
-			//
-
 		}
 
-		// if len(args) == 2 {
-		//
-		// 	fmt.Println("Length is 2")
-		// 	selector := fmt.Sprintf("h2[id=%s]+pre", args[1])
-		//
-		// 	link := fmt.Sprintf("From: https://golang.org/pkg/%s/#%s", args[0], args[1])
-		// 	// fmt.Println(link)
-		//
-		// 	c.OnHTML(selector, func(e *colly.HTMLElement) {
-		// 		fmt.Println(e.Text)
-		// 		formatedText := fmt.Sprintf("`%s`", e.Text)
-		// 		// c.Visit(e.Request.AbsoluteURL(link))
-		// 		// fmt.Println(e.ChildText(selector))
-		// 		content = append(content, formatedText)
-		// 	})
-		//
-		// 	c.OnRequest(func(r *colly.Request) {
-		// 		fmt.Printf("Visiting package: \"%s\" function:\"%s\" ", args[0], args[1])
-		// 	})
-		//
-		// 	c.Visit(selector)
-		// }
-
-		// fmt.Println(content)
-
-		// fmt.Printf("golang called, %+v number of arguments", numArgs)
+		// Case - Two Arguments: Print Documentation For Single Package Method
+		
 
 	},
 }
