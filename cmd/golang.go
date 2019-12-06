@@ -43,7 +43,7 @@ to quickly create a Cobra application.`,
 	// All submitted arguments can be found in args slice
 	Run: func(cmd *cobra.Command, args []string) {
 		// Content is the scrapped data we will be printing the command line
-		content := []string{}
+		// content := []string{}
 		c := colly.NewCollector(
 			// Put allowed domain parameters here
 		)
@@ -72,15 +72,15 @@ to quickly create a Cobra application.`,
 		// Case - Two Arguments: Print Documentation For Single Package Method
 		if len(args) == 2 {
 			// Link is the website we will be scrapping
-			link := fmt.Sprintf("https://golang.org/pkg/%s/%s", args[0], args[1])
-			fmt.Println(link)
+			link := fmt.Sprintf("https://golang.org/pkg/%s/#%s", args[0], args[1])
+			// fmt.Println(link)
 			// Selector is the type of html we want to scrape
-			selector := fmt.Sprintf("h2[id=%s] + pre", args[1])
+			selector_function := fmt.Sprintf("h2[id=%s]+pre", args[1])
 
-			c.OnHTML(selector, func(e *colly.HTMLElement) {
+			c.OnHTML(selector_function, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
-				formatedText := fmt.Sprintf("%s", e.Text)
-				content = append(content, formatedText)
+				// formatedText := fmt.Sprintf("%s", e.Text)
+				// content = append(content, formatedText)
 				// fmt.Println("Got content")
 				// fmt.Println(content)
 
