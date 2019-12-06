@@ -21,7 +21,7 @@ import (
 	// Package fmt allows formating options (ex: print line)
 	"fmt"
 	// Package strings allows string manipulation (ex: join)
-	"strings"
+	// "strings"
 
 	// Package cobra facilitates CLI projects
 	"github.com/spf13/cobra"
@@ -56,6 +56,29 @@ to quickly create a Cobra application.`,
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
+				// formatedText := fmt.Sprintf("%s", e.Text)
+				// content = append(content, formatedText)
+				// fmt.Println("Got content")
+				// fmt.Println(content)
+
+				// content += formatedText
+
+			})
+			// message := strings.Join(content, "\n")
+			// fmt.Println(message)
+			c.Visit(link)
+		}
+
+		// Case - Two Arguments: Print Documentation For Single Package Method
+		if len(args) == 2 {
+			// Link is the website we will be scrapping
+			link := fmt.Sprintf("https://golang.org/pkg/%s/%s", args[0], args[1])
+			fmt.Println(link)
+			// Selector is the type of html we want to scrape
+			selector := fmt.Sprintf("h2[id=%s] + pre", args[1])
+
+			c.OnHTML(selector, func(e *colly.HTMLElement) {
+				fmt.Println(e.Text)
 				formatedText := fmt.Sprintf("%s", e.Text)
 				content = append(content, formatedText)
 				// fmt.Println("Got content")
@@ -64,13 +87,10 @@ to quickly create a Cobra application.`,
 				// content += formatedText
 
 			})
-			message := strings.Join(content, "\n")
-			fmt.Println(message)
+			// message := strings.Join(content, "\n")
+			// fmt.Println(message)
 			c.Visit(link)
 		}
-
-		// Case - Two Arguments: Print Documentation For Single Package Method
-		
 
 	},
 }
