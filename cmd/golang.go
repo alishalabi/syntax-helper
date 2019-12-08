@@ -75,9 +75,35 @@ to quickly create a Cobra application.`,
 			link := fmt.Sprintf("https://golang.org/pkg/%s/#%s", args[0], args[1])
 			// fmt.Println(link)
 			// Selector is the type of html we want to scrape
-			selector_function := fmt.Sprintf("h2[id=%s]+pre", args[1])
+			selector := fmt.Sprintf("h2[id=%s]+pre", args[1])
 
-			c.OnHTML(selector_function, func(e *colly.HTMLElement) {
+			c.OnHTML(selector, func(e *colly.HTMLElement) {
+				fmt.Println("Function Syntax:")
+				fmt.Println(e.Text)
+				fmt.Printf("For Synatx example: \n$ ./syntax-cli golang %s %s example",
+					args[0], args[1])
+				// formatedText := fmt.Sprintf("%s", e.Text)
+				// content = append(content, formatedText)
+				// fmt.Println("Got content")
+				// fmt.Println(content)
+
+				// content += formatedText
+
+			})
+
+
+			// message := strings.Join(content, "\n")
+			// fmt.Println(message)
+			c.Visit(link)
+		}
+
+		if len(args) == 3 && args[2] == "example" {
+			link := fmt.Sprintf("https://golang.org/pkg/%s/#%s", args[0], args[1])
+
+			selector := fmt.Sprintf("#example_%s > div.expanded > div > div.input > textarea", args[1])
+
+			c.OnHTML(selector, func(e *colly.HTMLElement) {
+				fmt.Println("Function Example:")
 				fmt.Println(e.Text)
 				// formatedText := fmt.Sprintf("%s", e.Text)
 				// content = append(content, formatedText)
@@ -87,8 +113,6 @@ to quickly create a Cobra application.`,
 				// content += formatedText
 
 			})
-			// message := strings.Join(content, "\n")
-			// fmt.Println(message)
 			c.Visit(link)
 		}
 
