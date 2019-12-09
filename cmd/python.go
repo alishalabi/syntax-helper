@@ -47,7 +47,7 @@ to quickly create a Cobra application.`,
 			// Link is the website we will be scrapping
 			link := fmt.Sprintf("https://docs.python.org/3/library/%s.html", args[0])
 			// Selector is the type of html we want to scrape
-			selector := "div.section > dl.data > dt> code.descname"
+			selector := "code.descname"
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
