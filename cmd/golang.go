@@ -42,8 +42,7 @@ to quickly create a Cobra application.`,
 	// All CLI functionality is nested under the RUN section
 	// All submitted arguments can be found in args slice
 	Run: func(cmd *cobra.Command, args []string) {
-		// Content is the scrapped data we will be printing the command line
-		// content := []string{}
+		// c is a new instance of the colly collector
 		c := colly.NewCollector(
 			// Put allowed domain parameters here
 		)
