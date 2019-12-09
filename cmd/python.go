@@ -51,16 +51,25 @@ to quickly create a Cobra application.`,
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
-				// formatedText := fmt.Sprintf("%s", e.Text)
-				// content = append(content, formatedText)
-				// fmt.Println("Got content")
-				// fmt.Println(content)
+			})
+			c.Visit(link)
+		}
 
-				// content += formatedText
+		// Case - Two Arguments: Print Documentation For Single Package Method
+		if len(args) == 2 {
+			// Link is the website we will be scrapping
+			link := fmt.Sprintf("https://docs.python.org/3/library/%s.html#%s.%s", args[0], args[0], args[1])
+			selector := fmt.Sprintf("#%s-constants > dl > dd > p", args[0])
+			fmt.Println(selector)
+
+			c.OnHTML(selector, func(e *colly.HTMLElement) {
+				fmt.Println("Function Syntax:")
+				fmt.Println(e.Text)
+				// fmt.Printf("For Synatx example: \n$ ./syntax-cli python %s %s example",
+				// 	args[0], args[1])
+
 
 			})
-			// message := strings.Join(content, "\n")
-			// fmt.Println(message)
 			c.Visit(link)
 		}
 	},
