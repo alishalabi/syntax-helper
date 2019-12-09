@@ -12,19 +12,62 @@ git clone git@github.com:alishalabi/syntax-helper.git
 ## Usage
 - Note: All functionality requires broadband connection
 
-- Get all Golang functions for given package name:
+Get all Golang functions for given package name:
 ```bash
 ./syntax-cli golang <pkg-name>
 ```
+Example:
+```
+➜  syntax-cli git:(master) ./syntax-cli golang unsafe                
+func Alignof(x ArbitraryType) uintptr
+func Offsetof(x ArbitraryType) uintptr
+func Sizeof(x ArbitraryType) uintptr
+type ArbitraryType
+type Pointer
+```
 
-- Get syntax for specific public function from package (Note: function names all begin with a capital letter)
+
+Get syntax for specific public function from package (Note: function names all begin with a capital letter)
 ```bash
 ./syntax-cli golang <pkg-name> <function-name>
 ```
+Example:
+```
+➜  syntax-cli git:(master) ./syntax-cli golang unsafe Offsetof
+Function Syntax:
+func Offsetof(x ArbitraryType) uintptr
+For Synatx example:
+$ ./syntax-cli golang unsafe Offsetof example
+```
 
-- Get example of specific public function from package (Note: function names all begin with a capital letter)
+
+Get example of specific public function from package (Note: function names all begin with a capital letter)
 ```bash
 ./syntax-cli golang <pkg-name> <function-name> example
+```
+Example:
+```
+➜  syntax-cli git:(master) ./syntax-cli golang fmt Fprintf example    
+Function Example:
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	const name, age = "Kim", 22
+	n, err := fmt.Fprintf(os.Stdout, "%s is %d years old.\n", name, age)
+
+	// The n and err return values from Fprintf are
+	// those returned by the underlying io.Writer.
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Fprintf: %v\n", err)
+	}
+	fmt.Printf("%d bytes written.\n", n)
+
+}
 ```
 
 ## Contributing
