@@ -8,6 +8,11 @@ Syntax Helper is a CLI that helps developers quickly get access to built-in code
 
 ## Installation
 
+Install using `go get` command:
+```bash
+go get github.com/alishalabi/syntax-helper
+```
+
 Install locally using:
 ```bash
 git clone git@github.com:alishalabi/syntax-helper.git
@@ -90,8 +95,8 @@ Please make sure to update tests as appropriate.
 - [x] Implement `Python package` parameter
 - [] Implement `Python function` parameter
 - [] Implement `Python function example` parameter
-- [] Finalize ReadMe.md
-- [] Implement badges
+- [x] Finalize ReadMe.md
+- [x] Implement badges
 - [] Deploy as Homebrew package
 
 
