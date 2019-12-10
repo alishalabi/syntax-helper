@@ -40,7 +40,7 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// c is a new instance of the colly collector
 		c := colly.NewCollector(
-			// Put allowed domain parameters here
+		// Put allowed domain parameters here
 		)
 		// Case - Single Argument: Print Index Of All Package Methods
 		if len(args) == 1 {
@@ -67,7 +67,6 @@ to quickly create a Cobra application.`,
 				fmt.Println(e.Text)
 				// fmt.Printf("For Synatx example: \n$ ./syntax-cli python %s %s example",
 				// 	args[0], args[1])
-
 
 			})
 			c.Visit(link)
