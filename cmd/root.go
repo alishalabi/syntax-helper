@@ -16,9 +16,6 @@ var rootCmd = &cobra.Command{
 	Long: `This project is designed to help coders get access to quick and proper code syntax
 
 The first language to be integrated is Golang (https://golang.org/).`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

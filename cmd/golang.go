@@ -39,16 +39,9 @@ to quickly create a Cobra application.`,
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println(e.Text)
-				// formatedText := fmt.Sprintf("%s", e.Text)
-				// content = append(content, formatedText)
-				// fmt.Println("Got content")
-				// fmt.Println(content)
-
-				// content += formatedText
 
 			})
-			// message := strings.Join(content, "\n")
-			// fmt.Println(message)
+
 			c.Visit(link)
 		}
 
@@ -56,7 +49,6 @@ to quickly create a Cobra application.`,
 		if len(args) == 2 {
 			// Link is the website we will be scrapping
 			link := fmt.Sprintf("https://golang.org/pkg/%s/#%s", args[0], args[1])
-			// fmt.Println(link)
 			// Selector is the type of html we want to scrape
 			selector := fmt.Sprintf("h2[id=%s]+pre", args[1])
 
@@ -65,17 +57,7 @@ to quickly create a Cobra application.`,
 				fmt.Println(e.Text)
 				fmt.Printf("For Synatx example: \n$ ./syntax-cli golang %s %s example",
 					args[0], args[1])
-				// formatedText := fmt.Sprintf("%s", e.Text)
-				// content = append(content, formatedText)
-				// fmt.Println("Got content")
-				// fmt.Println(content)
-
-				// content += formatedText
-
 			})
-
-			// message := strings.Join(content, "\n")
-			// fmt.Println(message)
 			c.Visit(link)
 		}
 
@@ -87,13 +69,6 @@ to quickly create a Cobra application.`,
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
 				fmt.Println("Function Example:")
 				fmt.Println(e.Text)
-				// formatedText := fmt.Sprintf("%s", e.Text)
-				// content = append(content, formatedText)
-				// fmt.Println("Got content")
-				// fmt.Println(content)
-
-				// content += formatedText
-
 			})
 			c.Visit(link)
 		}
@@ -103,14 +78,4 @@ to quickly create a Cobra application.`,
 
 func init() {
 	rootCmd.AddCommand(golangCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// golangCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// golangCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
