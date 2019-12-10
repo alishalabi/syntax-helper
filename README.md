@@ -1,3 +1,6 @@
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
+
 # Syntax Helper CLI
 
 Syntax Helper is a CLI that helps developers quickly get access to built-in code syntax. Syntax Helper supports a variety of code packages for both Golang and Python. Data is scrapped directly from https://golang.org/pkg/ & https://docs.python.org/3/library/.
