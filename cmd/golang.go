@@ -38,7 +38,12 @@ to quickly create a Cobra application.`,
 			selector := "#manual-nav > dl > dd > a"
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
-				fmt.Println(e.Text)
+				if e.Text == "" {
+					fmt.Println("No package in golang docs with that name, please check spelling")
+				} else {
+					fmt.Println(e.Text)
+				}
+
 
 			})
 
@@ -53,10 +58,14 @@ to quickly create a Cobra application.`,
 			selector := fmt.Sprintf("h2[id=%s]+pre", args[1])
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
-				fmt.Println("Function Syntax:")
-				fmt.Println(e.Text)
-				fmt.Printf("For Synatx example: \n$ ./syntax-cli golang %s %s example",
-					args[0], args[1])
+				if e.Text == "" {
+					fmt.Println("No package/function combo in golang docs with that name, please check spelling")
+				} else {
+					fmt.Println("Function syntax:")
+					fmt.Println(e.Text)
+					fmt.Printf("For usage example: \n$ ./syntax-cli golang %s %s example \n",
+						args[0], args[1])
+				}
 			})
 			c.Visit(link)
 		}
@@ -67,8 +76,12 @@ to quickly create a Cobra application.`,
 			selector := fmt.Sprintf("#example_%s > div.expanded > div > div.input > textarea", args[1])
 
 			c.OnHTML(selector, func(e *colly.HTMLElement) {
-				fmt.Println("Function Example:")
-				fmt.Println(e.Text)
+				if e.Text == "" {
+					fmt.Println("No example in golang docs available")
+				} else {
+					fmt.Println("Usage example:")
+					fmt.Println(e.Text)
+				}
 			})
 			c.Visit(link)
 		}
