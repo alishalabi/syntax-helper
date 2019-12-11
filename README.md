@@ -27,7 +27,7 @@ Get all Golang functions for given package name:
 ```
 Example:
 ```
-➜  syntax-cli git:(master) ./syntax-cli golang unsafe                
+$ ./syntax-cli golang unsafe                
 func Alignof(x ArbitraryType) uintptr
 func Offsetof(x ArbitraryType) uintptr
 func Sizeof(x ArbitraryType) uintptr
@@ -42,7 +42,7 @@ Get syntax for specific public function from package (Note: function names all b
 ```
 Example:
 ```
-➜  syntax-cli git:(master) ./syntax-cli golang unsafe Offsetof
+$ ./syntax-cli golang unsafe Offsetof
 Function Syntax:
 func Offsetof(x ArbitraryType) uintptr
 For Synatx example:
@@ -56,7 +56,7 @@ Get example of specific public function from package (Note: function names all b
 ```
 Example:
 ```
-➜  syntax-cli git:(master) ./syntax-cli golang fmt Fprintf example    
+$ ./syntax-cli golang fmt Fprintf example    
 Function Example:
 package main
 
