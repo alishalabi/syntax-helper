@@ -44,7 +44,6 @@ to quickly create a Cobra application.`,
 					fmt.Println(e.Text)
 				}
 
-
 			})
 
 			c.Visit(link)
