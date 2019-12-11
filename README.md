@@ -19,6 +19,9 @@ go get github.com/alishalabi/syntax-helper
 ```
 
 ## Usage
+
+[![asciicast](https://asciinema.org/a/287275.svg)](https://asciinema.org/a/287275)
+
 - Note: All functionality requires broadband connection
 
 Get all Golang functions for given package name:
