@@ -1,4 +1,4 @@
-// Package CMD provides CLI utility
+// Package cmd provides CLI utility
 package cmd
 
 import (
@@ -16,13 +16,7 @@ import (
 // pythonCmd represents the python command
 var pythonCmd = &cobra.Command{
 	Use:   "python",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A series of commands to get Python code syntax",
 	Run: func(cmd *cobra.Command, args []string) {
 		// c is a new instance of the colly collector
 		c := colly.NewCollector(

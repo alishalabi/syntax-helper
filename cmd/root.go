@@ -1,12 +1,11 @@
-// Package CMD provides CLI utility
+// Package cmd provides CLI utility
 package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
-	// homedir "github.com/mitchellh/go-homedir"
-	// "github.com/spf13/viper"
+
+	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
