@@ -8,14 +8,14 @@ Syntax Helper is a CLI that helps developers quickly get access to built-in code
 
 ## Installation
 
-Install using `go get` command:
-```bash
-go get github.com/alishalabi/syntax-helper
-```
-
 Install locally using:
 ```bash
 git clone git@github.com:alishalabi/syntax-helper.git
+```
+
+Install using `go get` command:
+```bash
+go get github.com/alishalabi/syntax-helper
 ```
 
 ## Usage
