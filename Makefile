@@ -1,7 +1,7 @@
 #
 # Makefile
 #
-VERSION = snapshot
+VERSION = 1.0.0
 GHRFLAGS =
 .PHONY: build release .scannerwork
 default: build

@@ -1,4 +1,4 @@
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama) [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest) [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/) [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama) [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest) [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/) [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)[![Go Report Card](https://goreportcard.com/badge/github.com/alishalabi/syntax-helper)](https://goreportcard.com/report/github.com/alishalabi/syntax-helper)
 
 
 
@@ -26,11 +26,11 @@ go get github.com/alishalabi/syntax-helper
 
 Get all Golang functions for given package name:
 ```bash
-./syntax-cli golang <pkg-name>
+./syntax-helper golang <pkg-name>
 ```
 Example:
 ```
-$ ./syntax-cli golang unsafe                
+$ ./syntax-helper golang unsafe                
 func Alignof(x ArbitraryType) uintptr
 func Offsetof(x ArbitraryType) uintptr
 func Sizeof(x ArbitraryType) uintptr
@@ -41,25 +41,25 @@ type Pointer
 
 Get syntax for specific public function from package (Note: function names all begin with a capital letter)
 ```bash
-./syntax-cli golang <pkg-name> <function-name>
+./syntax-helper golang <pkg-name> <function-name>
 ```
 Example:
 ```
-$ ./syntax-cli golang unsafe Offsetof
+$ ./syntax-helper golang unsafe Offsetof
 Function Syntax:
 func Offsetof(x ArbitraryType) uintptr
 For Synatx example:
-$ ./syntax-cli golang unsafe Offsetof example
+$ ./syntax-helper golang unsafe Offsetof example
 ```
 
 
 Get example of specific public function from package (Note: function names all begin with a capital letter)
 ```bash
-./syntax-cli golang <pkg-name> <function-name> example
+./syntax-helper golang <pkg-name> <function-name> example
 ```
 Example:
 ```
-$ ./syntax-cli golang fmt Fprintf example    
+$ ./syntax-helper golang fmt Fprintf example    
 Function Example:
 package main
 
