@@ -20,7 +20,7 @@ go get github.com/alishalabi/syntax-helper
 
 ## Usage
 
-[![asciicast](https://asciinema.org/a/287277.svg)](https://asciinema.org/a/287277)
+[![asciicast](https://asciinema.org/a/287560.svg)](https://asciinema.org/a/287560)
 
 - Note: All functionality requires broadband connection
 
